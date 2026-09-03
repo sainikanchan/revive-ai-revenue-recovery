@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';import {getAudit} from '../../../lib/audit';export async function GET(request:Request){const id=new URL(request.url).searchParams.get('caseId')??undefined;return NextResponse.json({events:await getAudit(id)});}

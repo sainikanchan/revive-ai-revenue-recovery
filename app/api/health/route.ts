@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';import {getStore} from '../../../lib/store';export async function GET(){try{const s=await getStore();return NextResponse.json({ok:true,service:'revive',database:'persistent-json',cases:s.cases.length});}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'store error'},{status:500});}}
